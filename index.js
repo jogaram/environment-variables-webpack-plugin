@@ -8,7 +8,7 @@ function EnvironmentVariablesPlugin(options) {
 }
 
 EnvironmentVariablesPlugin.prototype._extractFileKeys = function (fileContent) {
-    return fileContent.match(/%%\s*.*\s*%%/g)
+    return fileContent.match(/%%\s*[\w\d\.]*\s*%%/g)
         .map(function (rawKey) {
             return {
                 raw: rawKey,
@@ -20,6 +20,7 @@ EnvironmentVariablesPlugin.prototype._extractFileKeys = function (fileContent) {
 EnvironmentVariablesPlugin.prototype._extractOption = function (keyChain) {
     var value = this.optionsMap;
 
+    console.log(keyChain, "\n")
     keyChain.split('.').forEach(function (keyPart) {
         value = value[keyPart];
     });
