@@ -30,10 +30,6 @@ EnvironmentVariablesPlugin.prototype._extractOption = function (keyChain) {
 EnvironmentVariablesPlugin.prototype._replaceFileVariables = function (fileContent) {
     var plugin = this, keys = this._extractFileKeys(fileContent);
 
-    console.log(chalk.red('found keys', keys.map(function (key) {
-        return key.raw;
-    })));
-
     if (keys && keys.length) {
         keys.forEach(function (key) {
             fileContent = fileContent.replace(key.raw, plugin._extractOption(key.parsed));
