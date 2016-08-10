@@ -1,0 +1,30 @@
+{
+  "name": "environment-variables-webpack-plugin",
+  "version": "0.0.0",
+  "description": "Webpack plugin to replace in your code environment variables defined as %%var%% from a json file",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jogaram/environment-variables-webpack-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "environment",
+    "variables"
+  ],
+  "author": "Jorge García Ramos <draco19892002@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jogaram/environment-variables-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/jogaram/environment-variables-webpack-plugin#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "fs": "0.0.2",
+    "path": "^0.12.7"
+  }
+}
