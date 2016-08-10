@@ -21,7 +21,7 @@
     //config/webpack.dev.js
     
     var webpackMerge = require('webpack-merge');
-    var EnvironmentVariablesPlugin = require('./environment-variables-webpack-plugin');
+    var EnvironmentVariablesPlugin = require('environment-variables-webpack-plugin');
     var commonConfig = require('./webpack.common.js');
     
     module.exports = webpackMerge(commonConfig, {
