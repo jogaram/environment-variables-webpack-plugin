@@ -21,7 +21,11 @@ EnvironmentVariablesPlugin.prototype._extractOption = function (keyChain) {
     var value = this.optionsMap;
 
     keyChain.split('.').forEach(function (keyPart) {
-        value = value[keyPart];
+        if (value[keyPart]) {
+            value = value[keyPart];
+        } else {
+            throw new Error("Could not found variable chain " + keyChain);
+        }
     });
 
     return value;
