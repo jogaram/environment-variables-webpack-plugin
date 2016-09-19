@@ -8,7 +8,9 @@ function EnvironmentVariablesPlugin(options) {
 }
 
 EnvironmentVariablesPlugin.prototype._extractFileKeys = function (fileContent) {
-    return fileContent.match(/%%\s*[\w\d\.]*\s*%%/g)
+    var _match = fileContent.match(/%%\s*[\w\d\.]*\s*%%/g)
+    if (!_match) return;
+    return _match
         .map(function (rawKey) {
             return {
                 raw: rawKey,
