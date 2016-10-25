@@ -23,8 +23,6 @@
   },
   "homepage": "https://github.com/jogaram/environment-variables-webpack-plugin#readme",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "fs": "0.0.2",
-    "path": "^0.12.7"
+    "chalk": "^1.1.3"
   }
 }
