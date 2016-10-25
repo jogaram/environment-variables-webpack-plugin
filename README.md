@@ -30,7 +30,8 @@
         plugins: [
             new EnvironmentVariablesPlugin({
                 optionsFile: 'config/dev.json',
-                chunks: ['angularApp']
+                chunks: ['angularApp'],
+                skipUndefinedVars: true // default false
             })
         ],
     

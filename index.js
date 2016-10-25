@@ -8,7 +8,13 @@ function EnvironmentVariablesPlugin(options) {
 }
 
 EnvironmentVariablesPlugin.prototype._extractFileKeys = function (fileContent) {
-    return fileContent.match(/%%\s*[\w\d\.]*\s*%%/g)
+    var vars = fileContent.match(/%%\s*[\w\d\.]*\s*%%/g);
+
+    if (!vars) {
+        console.log(chalk.yellow("WARNING: No environment variables found"));
+    }
+
+    return (vars || [])
         .map(function (rawKey) {
             return {
                 raw: rawKey,
@@ -18,11 +24,13 @@ EnvironmentVariablesPlugin.prototype._extractFileKeys = function (fileContent) {
 };
 
 EnvironmentVariablesPlugin.prototype._extractOption = function (keyChain) {
-    var value = this.optionsMap;
+    var value = this.optionsMap, plugin = this;
 
     keyChain.split('.').forEach(function (keyPart) {
         if (value[keyPart]) {
             value = value[keyPart];
+        } else if (plugin.skipUndefinedVars) {
+            console.log(chalk.yellow('WARNING: No value found for variable "', chalk.bold(keyChain), '"'))
         } else {
             throw new Error("Could not found variable chain " + keyChain);
         }
